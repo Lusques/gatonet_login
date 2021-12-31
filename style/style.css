@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: inherit;
+  list-style: none;
+  transition: 0.6s;
+}
+
+.title {
+  font-size: 3rem;
+  color: white;
+}
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 28px;
+  color: white;
+}
+
+.text {
+  font-size: 1rem;
+  color: white;
+}
+
+.intertitle {
+  font-size: 12px;
+  color: white;
+}
+
+.detach--2 {
+  color: #888 !important;
+}
+
+.none {
+  display: none;
+}
+
+.checkbox {
+  border-radius: 3px;
+  height: 16px;
+  width: 16px;
+  background-color: #c4c4c4;
+}
+.checkbox__active {
+  background-color: #e10914;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../image/checkbox__active.svg);
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.info-container, #mask, #all-content {
+  height: 100vh;
+  width: 100%;
+}
+
+.login, .subscribe {
+  height: 550px;
+  width: 470px;
+  position: relative;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-55%);
+}
+
+.login__inputs > input, .subscribe__inputs > input {
+  padding: 0 10px;
+  height: 45px;
+  width: 463px;
+  border-radius: 3px;
+  border: 0;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #555;
+}
+.login__inputs > input::placeholder, .subscribe__inputs > input::placeholder {
+  color: #ddd;
+}
+
+#all-content {
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  background-image: url(../image/background-login.svg);
+}
+@media screen and (max-width: 1200px) {
+  #all-content {
+    height: 200vh;
+  }
+}
+
+#mask {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+@media screen and (max-width: 1200px) {
+  #mask {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: "";
+    height: 200vh;
+  }
+}
+
+.info-container {
+  position: relative;
+}
+.info-container:last-child {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.info-container > .logo {
+  height: 40px;
+  width: fit-content;
+  position: absolute;
+  top: 15px;
+  right: 50px;
+}
+.info-container > .logo > img {
+  max-height: 100%;
+}
+@media screen and (max-width: 480px) {
+  .info-container > .logo {
+    height: 30px;
+    right: 25px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .info-container {
+    display: flex;
+  }
+}
+
+.subscribe p {
+  margin-left: 10px;
+}
+.subscribe__inputs {
+  margin-bottom: 15px;
+}
+.subscribe__inputs > input:focus {
+  border-bottom: solid 2px white;
+  outline: 0;
+}
+@media screen and (max-width: 480px) {
+  .subscribe__inputs > input {
+    width: 100%;
+  }
+}
+.subscribe__inputs > input:not(:nth-child(2)) {
+  margin: 35px 0;
+}
+.subscribe__button {
+  padding: 10px 20px;
+  margin-bottom: 42px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e10914;
+}
+.subscribe__button:hover {
+  cursor: pointer;
+  background-color: white;
+}
+.subscribe__button:hover p {
+  color: #e10914;
+}
+.subscribe__button > p {
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+}
+@media screen and (max-width: 480px) {
+  .subscribe__button > p {
+    font-size: 1rem;
+  }
+}
+.subscribe__checkbox .checkbox__container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.subscribe__checkbox .checkbox__container:first-child {
+  margin-bottom: 50px;
+}
+.subscribe__checkbox .checkbox__container div > img {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+.subscribe__captcha {
+  width: 300px;
+}
+.subscribe__captcha p {
+  margin: 0;
+  line-height: 1.5em;
+}
+.subscribe__captcha span:last-child {
+  display: inline-block;
+  color: #0071ff;
+}
+.subscribe__captcha span:last-child::after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 0;
+  transition: 0.3s;
+  background-color: #555;
+}
+.subscribe__captcha span:last-child:hover::after {
+  width: 70%;
+  background-color: #0071ff;
+}
+@media screen and (max-width: 1200px) {
+  .subscribe {
+    margin: auto;
+    position: initial;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 480px) {
+  .subscribe {
+    width: 320px;
+  }
+}
+
+.login {
+  width: 463px;
+}
+.login__inputs > input:focus {
+  border-bottom: solid 2px white;
+  outline: 0;
+}
+@media screen and (max-width: 480px) {
+  .login__inputs > input {
+    width: 100%;
+  }
+}
+.login__inputs > input:not(:last-child) {
+  margin: 35px 0;
+}
+.login__buttons {
+  margin: 50px 0 42px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login__buttons > a:first-child .login__buttons__button {
+  background-color: #e10914;
+}
+.login__buttons > a:first-child .login__buttons__button:hover {
+  background-color: white;
+}
+.login__buttons > a:first-child .login__buttons__button:hover > p {
+  color: #e10914;
+}
+.login__buttons > a:last-child .login__buttons__button {
+  border: solid 1px white;
+}
+.login__buttons > a:last-child .login__buttons__button:hover {
+  background-color: white;
+}
+.login__buttons > a:last-child .login__buttons__button:hover > p {
+  color: #555;
+}
+.login__buttons__button {
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.login__buttons__button > p {
+  margin: auto;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+@media screen and (max-width: 480px) {
+  .login__buttons__button > p {
+    font-size: 1rem;
+  }
+}
+.login__checkbox {
+  margin-bottom: 42px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login__checkbox > label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: "";
+  width: fit-content;
+  cursor: pointer;
+}
+.login__checkbox > label > p {
+  margin-left: 10px;
+}
+.login p > a {
+  display: block;
+}
+.login p > a::after {
+  transition: 0.3s;
+  display: block;
+  content: "";
+  height: 1px;
+  width: 0px;
+  background-color: #555;
+}
+.login p > a:hover::after {
+  position: relative;
+  right: 0;
+  height: 1px;
+  width: 70%;
+  background-color: red;
+}
+.login .checkbox__container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: "";
+  width: fit-content;
+}
+.login .checkbox__container .logo-facebook {
+  height: 16px;
+  width: 16px;
+}
+.login .checkbox__container .logo-facebook > img {
+  height: 100%;
+}
+.login .checkbox__container:hover {
+  cursor: pointer;
+}
+.login .checkbox__container p {
+  margin-left: 15px;
+}
+.login .checkbox__container p::after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 0px;
+  transition: 0.3s;
+  background-color: white;
+}
+.login .checkbox__container p:hover::after {
+  width: 70%;
+}
+@media screen and (max-width: 1200px) {
+  .login {
+    margin: auto;
+    position: initial;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 480px) {
+  .login {
+    width: 320px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

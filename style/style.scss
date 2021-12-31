@@ -1,0 +1,475 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: inherit;
+
+  list-style: none;
+  transition: 0.6s;
+}
+
+// = Funçoes =
+
+@mixin displayFlex($flex_direction, $justify_content) {
+  display: flex;
+  align-items: center;
+  flex-direction: $flex_direction;
+  justify-content: $justify_content;
+}
+
+@mixin media($largura){
+  @media screen and (max-width: $largura){
+    @content;
+  }
+}
+
+// === Funçoes ===
+
+// = variaveis =
+
+$bg-button: #e10914;
+$bg-input: #555;
+
+$text-color: white;
+
+
+.title {
+  font-size: 3rem;
+  color: $text-color;
+
+  @include media(480px){
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 28px;
+  color: $text-color;
+}
+
+.text {
+  font-size: 1rem;
+  color: $text-color;
+}
+
+.intertitle {
+  font-size: 12px;
+  color: $text-color;
+}
+
+.detach--2 {
+  color: #888 !important
+}
+
+.none {
+  display: none;
+}
+
+.checkbox {
+  border-radius: 3px;
+  height: 16px;
+  width: 16px;
+  background-color: #c4c4c4;
+  &__active {
+    background-color: $bg-button;
+
+    background-size: cover;
+    background-position: center;
+    background-image: url(../image/checkbox__active.svg);
+  }
+}
+
+.upper{
+  text-transform: uppercase;
+}
+.underline:hover{
+  text-decoration: underline;
+}
+// === variaveis ===
+
+// = Placeholder's =
+%height-width--container {
+  height: 100vh;
+  width: 100%;
+}
+
+%subscribe-login--container {
+  height: 550px;
+  width: 470px;
+  position: relative;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-55%);
+}
+
+%input-text {
+  padding: 0 10px;
+  height: 45px;
+  width: 463px;
+  border-radius: 3px;
+  border: 0;
+
+  font-size: 1.2rem;
+
+  color: $text-color;
+  background-color: $bg-input;
+  &::placeholder {
+    color: #ddd;
+  }
+}
+
+%aparece {
+  height: 550px;
+  width: 300px;
+
+  background-color: blueviolet;
+  border: dashed 3px $text-color;
+}
+// === Placeholder's ===
+
+#all-content {
+  @extend %height-width--container;
+  // @include media(1200px){
+  //   height: 200vh;
+  // }
+
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  background-image: url(../image/background-login.svg);
+
+  @include media(1200px){
+    height: 200vh
+  }
+}
+
+#mask {
+  @extend %height-width--container;
+  @include displayFlex(row, space-between);
+  background-color: rgba(0, 0, 0, 0.8);
+
+  @include media(1200px){
+    @include displayFlex(column-reverse, '');
+    height: 200vh
+  }
+}
+
+.info-container {
+  @extend %height-width--container;
+  position: relative;
+
+  &:last-child {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  > .logo{
+    height: 40px;
+    width: fit-content;
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    > img{
+      max-height: 100%;
+    }
+
+    @include media(480px){
+      height: 30px;
+
+      right: 25px;
+    }
+  }
+
+  @include media(1200px){
+    display: flex
+  }
+}
+
+.subscribe {
+  @extend %subscribe-login--container;
+
+  & p {
+    margin-left: 10px;
+  }
+
+  &__inputs {
+    margin-bottom: 15px;
+    > input {
+      @extend %input-text;
+
+      &:focus {
+        border-bottom: solid 2px $text-color;
+        outline: 0;
+      }
+
+      @include media(480px){
+        width: 100%;
+      }
+    }
+    > input:not(:nth-child(2)) {
+      margin: 35px 0;
+    }
+    
+  }
+
+  &__button {
+    padding: 10px 20px;
+    margin-bottom: 42px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 3px;
+
+    @include displayFlex(row, space-between);
+
+    background-color: $bg-button;
+    &:hover {
+      cursor: pointer;
+      background-color: $text-color;
+
+      & p {
+        color: $bg-button;
+      }
+    }
+    & > p {
+      margin: auto;
+      height: fit-content;
+      width: fit-content;
+
+      font-weight: bold;
+      color: $text-color;
+
+      font-size: 1.2rem;
+
+      @include media(480px){
+        font-size: 1rem;
+      }
+    }
+
+    
+  }
+
+  &__checkbox {
+    .checkbox__container {
+      width: fit-content;
+      @include displayFlex(row, space-between);
+      cursor: pointer;
+      &:first-child {
+        margin-bottom: 50px;
+      }
+      & div {
+        // height: 24px;
+        // width: 24px;
+
+        & > img {
+          height: 100%;
+          width: 100%;
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  &__captcha{
+    width: 300px;
+
+    p{
+      margin: 0;
+      line-height: 1.5em
+    }
+    span:last-child{
+      display: inline-block;
+      color: #0071ff; 
+      &::after{
+        display: block;
+        content: '';
+
+        height: 1px;
+        width: 0;
+
+        transition: .3s;
+        background-color: $bg-input;
+      }
+      
+      &:hover{
+        &::after{
+          width: 70%;
+          background-color: #0071ff;
+        }
+      }
+
+
+    }
+  }
+
+  @include media(1200px){
+    margin: auto;
+    position: initial;
+    transform: translateY(0);
+  }
+  @include media(480px){
+    width: 320px;
+  }
+}
+
+.login {
+  @extend %subscribe-login--container;
+
+  width: 463px;
+
+  &__inputs {
+    & > input {
+      @extend %input-text;
+      &:focus {
+        border-bottom: solid 2px $text-color;
+        outline: 0;
+      }
+
+
+      @include media(480px){
+        width: 100%;
+      }
+    }
+    > input:not(:last-child) {
+      margin: 35px 0;
+    }
+
+    
+  }
+
+  &__buttons {
+    margin: 50px 0 42px;
+    @include displayFlex(row, space-between);
+
+    & > a{
+        &:first-child {
+          & .login__buttons__button{
+          background-color: $bg-button;
+          &:hover {
+            background-color: $text-color;
+  
+            & > p {
+              color: $bg-button;
+            }
+          }
+        }
+        }
+
+        &:last-child {
+          & .login__buttons__button{
+          border: solid 1px $text-color;
+  
+          &:hover {
+            background-color: $text-color;
+  
+            & > p {
+              color: $bg-input;
+            }
+          }
+        }
+      }
+    }
+    &__button {
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      
+      & > p {
+        margin: auto;
+        color: $text-color;
+        font-size: 1.2rem;
+        font-weight: 700;
+
+        @include media(480px){
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: 42px;
+    @include displayFlex(row, space-between);
+    > label {
+      @include displayFlex(row, '');
+
+      width: fit-content;
+
+      cursor: pointer;
+
+      & > p{
+        margin-left: 10px;
+      }
+    }
+  }
+  p > a{
+    display: block;
+
+    &::after{
+      transition: .3s;
+      display: block;
+      content: '';
+      height: 1px;
+      width: 0px;
+      background-color: $bg-input;
+    }
+    &:hover{
+    &::after{
+      position: relative;
+      right: 0;
+      height: 1px;
+      width: 70%;
+      background-color: red
+    }
+  }
+  }
+  .checkbox__container{
+    @include displayFlex(row, '');
+    width: fit-content;
+    .logo-facebook{
+      height: 16px;
+      width: 16px;
+
+      > img{
+        height: 100%;
+      }
+    }
+    &:hover{
+      cursor: pointer;
+    }
+    p{
+      margin-left: 15px;
+      &::after{
+        display: block;
+        content: '';
+
+        height: 1px;
+        width: 0px;
+
+        transition: .3s;
+        background-color: $text-color;
+      }
+
+      &:hover{
+        &::after{
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  @include media(1200px){
+    margin: auto;
+    position: initial;
+    transform: translateY(0);
+  }
+  @include media(480px){
+    width: 320px;
+  }
+}
+
+
